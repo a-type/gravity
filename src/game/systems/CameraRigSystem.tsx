@@ -1,5 +1,7 @@
-import { FC } from 'react';
+import { Controller, processors, VectorControl } from '@hmans/controlfreak';
+import { FC, useEffect, useMemo } from 'react';
 import { Vector3 } from 'three';
+import { MouseDevice } from '../../lib/control/MouseDevice';
 import { useTickerFrame } from '../../lib/tickle';
 import { ECS } from '../ecs';
 import { Update } from '../Update';
@@ -23,4 +25,30 @@ export const CameraRigSystem: FC = () => {
   }, Update.Late);
 
   return null;
+};
+
+const useController = () => {
+  const controller = useMemo(createController, []);
+
+  useEffect(() => {
+    controller.start();
+    return () => controller.stop();
+  }, [controller]);
+
+  return controller;
+};
+
+const createController = () => {
+  const controller = new Controller();
+  const mouse = new MouseDevice();
+
+  controller.addDevice(mouse);
+
+  controller
+    .addControl('move', VectorControl)
+    .addStep(mouse.velocityVector)
+    .addStep(processors.clampVector(100))
+    .addStep(processors.deadzone(15));
+
+  return controller;
 };

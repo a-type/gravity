@@ -29,6 +29,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-merge-refs": "^1.1.0",
-    "three": "^0.140.0"
+    "three": "^0.140.0",
+    "three-stdlib": "^2.10.1"
   }
 }

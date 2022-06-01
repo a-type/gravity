@@ -7,6 +7,7 @@ type Entity = {
   isGround?: Tag;
   isCamera?: Tag;
   isParticleEffect?: Tag;
+  animation?: string;
 
   transform?: Object3D;
   spawnTransform?: Object3D;

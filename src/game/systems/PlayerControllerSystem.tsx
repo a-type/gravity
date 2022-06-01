@@ -63,6 +63,13 @@ export const PlayerControllerSystem: FC = () => {
       state.lastFiredAt = t;
       // firePlayerWeapons()
     }
+
+    const isMoving = state.move.x !== 0 || state.move.y !== 0;
+    if (isMoving) {
+      player.animation = 'running';
+    } else {
+      player.animation = 'standing_idle';
+    }
   }, Update.Default);
 
   return null;
@@ -74,7 +81,7 @@ const useController = () => {
   useEffect(() => {
     controller.start();
     return () => controller.stop();
-  });
+  }, [controller]);
 
   return controller;
 };

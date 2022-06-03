@@ -18,11 +18,14 @@
     "vite-plugin-glsl": "^0.1.2"
   },
   "dependencies": {
+    "0g": "^0.0.7",
+    "@0g/react": "^0.0.7",
     "@dimforge/rapier3d-compat": "^0.8.0-alpha.2",
     "@hmans/controlfreak": "^0.2.0",
     "@react-three/drei": "^9.7.1",
     "@react-three/fiber": "^8.0.13",
     "@types/three": "^0.140.0",
+    "buffer": "^6.0.3",
     "miniplex": "^0.10.1",
     "miniplex-react": "^0.4.1",
     "randomish": "^0.1.2",

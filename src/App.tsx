@@ -1,3 +1,4 @@
-import { Game } from './game/Game';
+import { game } from './0g/game/game';
+import { Editor } from '@0g/editor';
 
-export const App = () => <Game />;
+export const App = () => <Editor game={game} />;

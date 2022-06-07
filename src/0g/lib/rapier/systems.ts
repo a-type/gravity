@@ -185,9 +185,9 @@ const updateTransformsSystem = makeSystem([Body, Transform], (entity) => {
 
 export const systems = compose(
   manageWorldsEffect,
-  manageBodiesEffect,
-  manageCollidersEffect,
-  updateBodiesSystem,
-  updateTransformsSystem,
+  // manageBodiesEffect,
+  // manageCollidersEffect,
+  // updateBodiesSystem,
+  // updateTransformsSystem,
   stepWorldRunner,
 );

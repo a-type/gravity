@@ -1,5 +1,0 @@
-export * from "./Collider"
-export * from "./collisions"
-export * from "./PhysicsObject3D"
-export * from "./PhysicsWorld"
-export * from "./RigidBody"

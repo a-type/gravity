@@ -36,7 +36,7 @@ export const game = new Game({
     ...Object.values(threeComponents),
     ...Object.values(gameComponents),
   ],
-  systems: [/*rapierSystems*/ threeSystems, gameSystems],
+  systems: [rapierSystems, threeSystems, gameSystems],
   assetLoaders: {
     '.gltf': threeLoaders.loadGltf,
   },

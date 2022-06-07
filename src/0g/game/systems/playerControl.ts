@@ -7,20 +7,27 @@ const tmpMovement = {
   y: 0,
   z: 0,
 };
+
+const FORCE = 1000;
+
 const playerControlSystem = makeSystem([Player, Body], (entity, game) => {
   const keyboard = game.globals.immediate('keyboard')!;
 
+  tmpMovement.x = 0;
+  tmpMovement.y = 0;
+  tmpMovement.z = 0;
+
   if (keyboard.getKeyPressed('a')) {
-    tmpMovement.x -= 1;
+    tmpMovement.x -= FORCE;
   }
   if (keyboard.getKeyPressed('d')) {
-    tmpMovement.x += 1;
+    tmpMovement.x += FORCE;
   }
   if (keyboard.getKeyPressed('w')) {
-    tmpMovement.z += 1;
+    tmpMovement.z += FORCE;
   }
   if (keyboard.getKeyPressed('s')) {
-    tmpMovement.z -= 1;
+    tmpMovement.z -= FORCE;
   }
 
   const { value: body } = entity.get(Body);

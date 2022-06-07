@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { compose, makeEffect, makeSystem } from '0g';
+import { changed, compose, makeEffect, makeSystem } from '0g';
 import {
   Camera,
   CameraConfig,
@@ -84,12 +84,13 @@ const managePointLightsEffect = makeEffect(
 );
 
 const objectTransformSystem = makeSystem(
-  [Object3D, Transform],
+  [Object3D, changed(Transform)],
   function (entity, game) {
     const { value: obj3d } = entity.get(Object3D);
     const { position, rotation } = entity.get(Transform);
     obj3d.position.set(position.x, position.y, position.z);
     obj3d.quaternion.set(rotation.x, rotation.y, rotation.z, rotation.w);
+    console.log('updated transform', entity.id, position, rotation);
   },
 );
 

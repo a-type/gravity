@@ -47,11 +47,11 @@ const doFollowCameraSystem = makeSystem(
         .applyQuaternion(target.quaternion)
         .add(target.position);
 
-      // camera.position.lerp(t, 0.05);
-      camera.position.copy(t);
+      camera.position.lerp(t, 0.5);
+      // camera.position.copy(t);
 
-      // camera.quaternion.slerp(target.quaternion, 0.05);
-      camera.quaternion.copy(target.quaternion);
+      camera.quaternion.slerp(target.quaternion, 0.5);
+      // camera.quaternion.copy(target.quaternion);
     }
   },
   'postStep',

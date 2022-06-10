@@ -6,6 +6,7 @@ import {
   GltfModel,
   Object3D,
   PointLightConfig,
+  SkyBox,
   TestCube,
 } from './components';
 import { GLTFResult } from './assets';
@@ -22,6 +23,13 @@ const loadGltfModelEffect = makeEffect(
     game.remove(entity.id, Object3D);
   },
 );
+
+const loadSkyBoxEffect = makeEffect([SkyBox], function* (entity, game) {
+  const { path } = entity.get(SkyBox);
+  const res: any = yield game.assets.load('cubeTexture', path);
+  const scene = yield game.globals.load('scene');
+  scene.background = res;
+});
 
 const createTestCubeEffect = makeEffect(
   [TestCube],
@@ -90,7 +98,6 @@ const objectTransformSystem = makeSystem(
     const { position, rotation } = entity.get(Transform);
     obj3d.position.set(position.x, position.y, position.z);
     obj3d.quaternion.set(rotation.x, rotation.y, rotation.z, rotation.w);
-    console.log('updated transform', entity.id, position, rotation);
   },
 );
 
@@ -106,6 +113,7 @@ const renderSceneSystem = makeSystem([Camera], function (entity, game) {
 
 export const systems = compose(
   loadGltfModelEffect,
+  loadSkyBoxEffect,
   createTestCubeEffect,
   addMeshesToSceneEffect,
   manageCameraEffect,

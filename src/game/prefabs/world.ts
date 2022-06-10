@@ -1,6 +1,6 @@
 import { Game } from '0g';
 import { Transform, WorldConfig } from '../../lib/rapier/components';
-import { TestCube } from '../../lib/threejs/components';
+import { SkyBox, TestCube } from '../../lib/threejs/components';
 
 export function worldPrefab(game: Game) {
   const world = game.create();
@@ -9,4 +9,7 @@ export function worldPrefab(game: Game) {
   // const testCube = game.create();
   // game.add(testCube, TestCube);
   // game.add(testCube, Transform);
+
+  const skyBox = game.create();
+  game.add(skyBox, SkyBox, { path: '/textures/skybox' });
 }

@@ -9,7 +9,7 @@ export function characterPrefab(game: Game) {
   game.add(character, Player);
   game.add(character, FollowCameraTarget);
   game.add(character, threeComponents.GltfModel, {
-    path: '/public/animations/character.glb',
+    path: '/animations/character.glb',
   });
   game.add(character, rapierComponents.BodyConfig, {
     canSleep: true,

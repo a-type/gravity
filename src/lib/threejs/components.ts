@@ -14,6 +14,10 @@ export class GltfModel extends Component(() => ({
   path: '',
 })) {}
 
+export class SkyBox extends Component(() => ({
+  path: '',
+})) {}
+
 export class CameraConfig extends Component(() => ({
   kind: 'perspective' as 'perspective' | 'orthographic',
   fov: 50,

@@ -27,6 +27,7 @@ declare module '0g' {
 
   interface AssetLoaders {
     '.gltf': typeof threeLoaders['loadGltf'];
+    cubeTexture: typeof threeLoaders['loadCubeTexture'];
   }
 }
 
@@ -39,6 +40,7 @@ export const game = new Game({
   systems: [rapierSystems, threeSystems, gameSystems],
   assetLoaders: {
     '.gltf': threeLoaders.loadGltf,
+    cubeTexture: threeLoaders.loadCubeTexture,
   },
 });
 (window as any).game = game;
@@ -61,6 +63,10 @@ const renderer = new WebGLRenderer();
 game.globals.resolve('renderer', renderer);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('game')!.appendChild(renderer.domElement);
+function updateCanvasSize() {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+window.addEventListener('resize', updateCanvasSize);
 
 worldPrefab(game);
 cameraPrefab(game);

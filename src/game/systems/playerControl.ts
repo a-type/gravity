@@ -8,7 +8,7 @@ const tmpMovement = {
   z: 0,
 };
 
-const FORCE = 1000;
+const FORCE = 10;
 
 const playerControlSystem = makeSystem([Player, Body], (entity, game) => {
   const keyboard = game.globals.immediate('keyboard')!;

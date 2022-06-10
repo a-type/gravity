@@ -1,7 +1,7 @@
 import { Game } from '0g';
 import { Quaternion } from 'three';
 import { Transform } from '../../lib/rapier/components';
-import { CameraConfig } from '../../lib/threejs/components';
+import { CameraConfig, OrbitControls } from '../../lib/threejs/components';
 import { FollowCamera } from '../components';
 
 export function cameraPrefab(game: Game) {
@@ -12,7 +12,8 @@ export function cameraPrefab(game: Game) {
     isMain: true,
   });
   game.add(id, Transform, {
-    position: { x: 0, y: 0, z: 0 },
+    position: { x: 0, y: 0, z: 10 },
   });
-  game.add(id, FollowCamera, {});
+  // game.add(id, FollowCamera, {});
+  game.add(id, OrbitControls, {});
 }

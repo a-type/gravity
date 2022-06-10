@@ -28,6 +28,8 @@ declare module '0g' {
   interface AssetLoaders {
     '.gltf': typeof threeLoaders['loadGltf'];
     cubeTexture: typeof threeLoaders['loadCubeTexture'];
+    texture: typeof threeLoaders['loadTexture'];
+    heightmap: typeof threeLoaders['loadHeightmap'];
   }
 }
 
@@ -41,6 +43,8 @@ export const game = new Game({
   assetLoaders: {
     '.gltf': threeLoaders.loadGltf,
     cubeTexture: threeLoaders.loadCubeTexture,
+    texture: threeLoaders.loadTexture,
+    heightmap: threeLoaders.loadHeightmap,
   },
 });
 (window as any).game = game;

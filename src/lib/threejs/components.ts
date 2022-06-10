@@ -18,6 +18,12 @@ export class SkyBox extends Component(() => ({
   path: '',
 })) {}
 
+export class HeightmapTerrain extends Component(() => ({
+  path: '',
+})) {}
+
+export class OrbitControls extends Component(() => ({})) {}
+
 export class CameraConfig extends Component(() => ({
   kind: 'perspective' as 'perspective' | 'orthographic',
   fov: 50,

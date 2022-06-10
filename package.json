@@ -22,7 +22,7 @@
     "0g": "^0.0.9",
     "@0g/editor": "^0.0.8",
     "@0g/react": "^0.0.8",
-    "@dimforge/rapier3d-compat": "^0.8.0-alpha.2",
+    "@dimforge/rapier3d-compat": "^0.8.1",
     "@hmans/controlfreak": "^0.2.0",
     "@react-three/drei": "^9.7.1",
     "@react-three/fiber": "^8.0.13",

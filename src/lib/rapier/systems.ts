@@ -143,6 +143,7 @@ const manageCollidersEffect = makeEffect(
     for (const collider of colliders.value) {
       world.removeCollider(collider, true);
     }
+    game.remove(entity.id, Colliders);
   },
 );
 

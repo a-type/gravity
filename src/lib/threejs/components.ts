@@ -43,4 +43,7 @@ export class Camera extends State(() => ({
 
 export class PointLightConfig extends Component(() => ({
   color: 0xffffff,
+  intensity: 1,
+  distance: 0,
+  decay: 1,
 })) {}

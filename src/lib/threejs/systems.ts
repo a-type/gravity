@@ -154,8 +154,8 @@ const manageCameraEffect = makeEffect(
 const managePointLightsEffect = makeEffect(
   [PointLightConfig],
   function* (entity, game) {
-    const { color } = entity.get(PointLightConfig);
-    const light = new THREE.PointLight(color);
+    const { color, intensity, distance, decay } = entity.get(PointLightConfig);
+    const light = new THREE.PointLight(color, intensity, distance, decay);
     game.globals.immediate('scene')!.add(light);
     game.add(entity.id, Object3D, { value: light });
   },

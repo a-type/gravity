@@ -13,7 +13,8 @@ export async function loadHeightmap(path: string): Promise<any> {
   ctx.drawImage(texture.image, 0, 0);
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   const data = imageData.data;
-  const heights = new Float32Array(data.length / 4);
+  const heightmapSize = (canvas.width + 1) * (canvas.height + 1);
+  const heights = new Float32Array(heightmapSize);
   for (let i = 0; i < data.length; i += 4) {
     const total = data[i] + data[i + 1] + data[i + 2];
     heights[i / 4] = total / 12;

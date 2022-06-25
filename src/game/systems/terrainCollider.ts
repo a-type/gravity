@@ -16,7 +16,6 @@ export const createTerrainColliderEffect = makeEffect(
       heights: Float32Array;
     } = yield game.assets.load('heightmap', path);
     const Rapier: typeof R = yield game.globals.load('Rapier');
-    console.log(texture.image.height, texture.image.width, heights);
     const colliderDesc = Rapier.ColliderDesc.heightfield(
       texture.image.height,
       texture.image.width,
